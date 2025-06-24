@@ -1,12 +1,15 @@
 import "./App.css";
-import LudoBoard from "./LudoBoard";
-import TodoList from "./TodoList";
 import Lottery from "./Lottery";
+import { sum } from "./helper";
 
 function App() {
+  let winCondition = (ticket) => {
+    return sum(ticket) === 15;
+    // return ticket.every((num) => num === ticket[0]);
+  };
   return (
     <>
-      <Lottery n={3} winningSum={15}/>
+      <Lottery n={3} winCondition={winCondition}/>
     </>
   );
 }
